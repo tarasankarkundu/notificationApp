@@ -1,7 +1,11 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const notificationBtn = document.getElementById("enable");
+  const [showReqBtn, setRequestBtn] = useState(
+    Notification.permission !== "granted"
+  );
+
   const checkNotificationPromise = () => {
     try {
       Notification.requestPermission().then();
@@ -15,19 +19,17 @@ function App() {
     // function to actually ask the permissions
     function handlePermission(permission) {
       // set the button to shown or hidden, depending on what the user answers
-      if (
-        Notification.permission === "denied" ||
-        Notification.permission === "default"
-      ) {
-        notificationBtn.style.display = "block";
+      console.log(permission);
+      if (permission === "denied" || permission === "default") {
+        setRequestBtn(true);
       } else {
-        notificationBtn.style.display = "none";
+        setRequestBtn(false);
       }
     }
 
     // Let's check if the browser supports notifications
     if (!("Notification" in window)) {
-      console.log("This browser does not support notifications.");
+      alert("This browser does not support notifications.");
     } else {
       if (checkNotificationPromise()) {
         Notification.requestPermission().then((permission) => {
@@ -47,9 +49,11 @@ function App() {
   };
   return (
     <div className="App">
-      <button id="enable" onClick={askNotificationPermission}>
-        Enable notifications
-      </button>
+      {showReqBtn && (
+        <button id="enable" onClick={askNotificationPermission}>
+          Enable notifications
+        </button>
+      )}
       <button id="notify" onClick={sendNotification}>
         Send Notification
       </button>
