@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/notificationApp/static/css/main.073c9b0a.css",
+    "main.js": "/notificationApp/static/js/main.a0c96c6f.js",
+    "static/js/787.2dafcc10.chunk.js": "/notificationApp/static/js/787.2dafcc10.chunk.js",
+    "index.html": "/notificationApp/index.html",
+    "main.073c9b0a.css.map": "/notificationApp/static/css/main.073c9b0a.css.map",
+    "main.a0c96c6f.js.map": "/notificationApp/static/js/main.a0c96c6f.js.map",
+    "787.2dafcc10.chunk.js.map": "/notificationApp/static/js/787.2dafcc10.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.a0c96c6f.js"
+  ]
+}
